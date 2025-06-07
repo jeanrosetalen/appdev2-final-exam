@@ -1,8 +1,12 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const user = require('./models/User');
+const User = require('./models/User');
 const router = express.Router()
+
+require('dotenv').config();
+const jwtSecret = process.env.JWT_SECRET;
+
 
 router.post('/api/auth/signin', async (req, res) => {
     try {
@@ -23,7 +27,7 @@ router.post('/api/auth/signin', async (req, res) => {
         // Generate JWT token
         const token = jwt.sign(
         { userId: user._id },
-        process.env.JWT_SECRET, 
+        jwtSecret, 
         { expiresIn: '1h' }
         );
 
