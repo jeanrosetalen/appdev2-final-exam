@@ -2,7 +2,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = require('./models/User');
-const router = express.Router()
+const autRouter = express.Router()
 
 require('dotenv').config();
 const jwtSecret = process.env.JWT_SECRET;
@@ -39,6 +39,6 @@ router.post('/api/auth/signin', async (req, res) => {
 
 })
 
-module.exports = router;
+module.exports = authRouter;
 
 
