@@ -4,8 +4,6 @@ const app = express()
 const eventRouter = express.Router()
 const sendConfirmationEmail = require('./config/nodemailer');
 
-
-
 require('dotenv').config();
 const jwtSecret = process.env.JWT_SECRET;
 

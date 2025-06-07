@@ -14,10 +14,14 @@ const eventSchema = mongoose.Schema(
         desciption: {
             type: String
         },
-        userId: {
-            type: mongoose.Types.ObjectId(),
+        _userId: {
+            type: new mongoose.Types.ObjectId(),
             ref: 'User',
         }
 
     }
 )
+
+const Event = mongoose.model('Event', eventSchema);
+
+module.exports = Event;
